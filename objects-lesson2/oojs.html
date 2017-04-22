@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Object-oriented JavaScript example</title>
+  </head>
+
+  <body>
+    <div>
+      <label for="jscode">Enter code:</label>
+      <input type="text" id="jscode">
+      <button>Submit code</button>
+    </div>
+
+    <p></p>
+  </body>
+
+    <script>
+      var input = document.querySelector('input');
+      var btn = document.querySelector('button');
+      var para = document.querySelector('p');
+
+      btn.onclick = function() {
+        var code = input.value;
+        para.textContent = eval(code);
+      }
+      
+      function Person(first, last, age, gender, interests) {
+          this.name = {
+              first,
+              last,
+          };
+          this.age = age;
+          this.gender = gender;
+          this.interests = interests;
+          this.bio = function() {
+              var pronoun = 'He';
+              if (gender === 'female') {
+                  pronoun = 'She';
+              } else {};
+              
+              var bio = this.name.first + ' ' + this.name.last + ' is ' + this.age + ' years old. ' + pronoun + ' likes ';
+              
+              for (var i = 0; i < interests.length; i++) {
+                  if (interests.length === 1) {
+                      bio += this.interests + '.';
+                  } else if (interests.length === 2) {
+                      bio += this.interests[0] + ' and ' + this.interests[1] + '.';
+                      break;
+                  } else if (i === interests.length - 1) {
+                      bio  += 'and ' + this.interests[i] + '.';
+                 } else {
+                      bio += this.interests[i] +', ';
+                  }
+              }
+              alert(bio);
+          };
+          this.greeting = function() {
+              alert('Hi! I\'m ' + this.name.first + '.');
+          };
+      };
+    
+        var person1 = new Person('Bob', 'Smith', 32, 'male', ['music', 'skiing']);
+        var person2 = new Person('Jane', 'Doe', 26, 'female', ['bowling', 'French', 'cooking']);
+        var person3 = new Person('Max', 'Pechstein', 44, 'male', ['painting']);
+        var person4 = new Person('Liz', 'Apple', 30, 'female', ['gardening', 'poetry', 'Italy', 'coffee', 'jazz']);
+    </script>
+</html>
