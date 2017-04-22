@@ -1,2 +1,2 @@
 # hello-world-js
-JavaScript learning repository based on Mozilla Developer Network coursework
+This is a JavaScript learning repository based on coursework from the Mozilla Developer Network.
